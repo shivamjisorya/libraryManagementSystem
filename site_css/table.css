@@ -1,0 +1,8 @@
+
+.table-register{
+    border: 3px solid orange;
+}
+
+.table-register td{
+    background-color: rgba(252, 178, 67, 0.726);
+}

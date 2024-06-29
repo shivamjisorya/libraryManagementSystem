@@ -1,0 +1,24 @@
+
+body{
+    background-image: url("/site_images/library2.jpg");
+    background-size: cover;
+}
+
+body, html {
+    height: 100%;
+}
+
+
+#logoutBtn {
+    margin-right: 15px;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}

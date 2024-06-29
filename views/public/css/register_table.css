@@ -1,0 +1,25 @@
+
+body{
+    background-image: url("/site_images/library.jpg");
+    background-size: cover;
+}
+
+  div.scrollable {
+    width: 150px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+  }
+
+  .htag{
+    display: none;
+  }
+
+  .navbar_custom{
+    background-color: rgb(132, 40, 0);
+  }
+
+  .table_register{
+    border: 1px solid rgb(131, 131, 131);
+  }

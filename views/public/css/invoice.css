@@ -1,0 +1,32 @@
+body{
+    background-image: url("/site_images/library2.jpg");
+    background-size: cover;
+}
+
+.invoice-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: rgba(108, 108, 108, 0.761);
+
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.invoice-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.invoice-details {
+    margin-bottom: 20px;
+}
+
+.invoice-table th,
+.invoice-table td {
+    text-align: center;
+}
+
+.total-amount {
+    font-weight: bold;
+    font-size: 18px;
+}

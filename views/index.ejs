@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Dashboard Page</title>
+    <link href="/public/css/bootstrap_5.3.2.css" rel="stylesheet">
+     <link rel="stylesheet" href="/public/css/index.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1">Library Management</span>
+       <a href="/logout"> <button class="btn btn-outline-light" id="logoutBtn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </button></a>
+    </nav>
+    <div class="container-fluid d-flex align-items-center justify-content-center h-100">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="card bg-info text-white text-center p-4 mb-4">
+                    <h4>Go for New Subscription</h4>
+                    <a href="/register" class="btn btn-light mt-3">
+                        <i class="fas fa-user-plus"></i> Register for New Subscription
+                    </a>
+                </div>
+                <div class="card bg-success text-white text-center p-4 mb-4">
+                    <h4>Go to Login Page</h4>
+                    <a href="/login" class="btn btn-light mt-3">
+                        <i class="fas fa-sign-in-alt"></i> Login Into Dashboard
+                    </a>
+                </div>
+                <div class="card bg-warning text-white text-center p-4">
+                    <h4>Visit View & Alter Page</h4>
+                    <a href="/userdata" class="btn btn-light mt-3">
+                        <i class="fas fa-eye"></i> View & Alter Admin Data
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link href="/public/css/bootstrap_5.3.2.css" rel="stylesheet">
+    <link rel="stylesheet" href="/public/css/font_awesome.css"/>
+    <link rel="stylesheet" href="/public/css/register_table.css">
+   
+  </head>
+<body class=" ">
+  <!-- ========================================== -->
+  <!-- <div id="popup" style="display: none;">
+    <p>This is your popup!</p>
+  </div> -->
+  <!-- ========================================= -->
+
+  <% if(message.length > 0) {%>
+    <div class="alert alert-success text-center display-6 flash">
+  <%= message %>
+    </div> 
+    <% } %>
+
+    <div class="container-fluid navbar_custom text-center">
+    <a class="py-3 m-2" href="/register"><button class=" bg-warning rounded text-white">ADD REGISTERATION</button></a> 
+    <a class="py-3 m-2" href="/changePassword"><button class=" bg-warning rounded text-white">change password</button></a> 
+
+    <a href="/logout"><button class="bg-success">LOGOUT</button></a>
+  </div>
+  <div class="container-lg rounded-lg">
+    
+    <% if(regdata.length>0) { %>
+      <table class="table_register mt-5 table table-primary text-center">
+        
+        <thead>
+          <tr>
+            <th class="bg-warning">UPLOADFILE</th>
+            <th class="bg-warning">USERNAME</th>
+            <th class="bg-warning">EMAIL</th>
+            <th class="bg-warning">AGE</th>
+            <th class="bg-warning">PASSWORD</th>
+            <th class="bg-danger">ACTION</th>
+          </tr>
+            </thead> 
+
+            <tbody  class="text-center">
+                <% for( var i=0; regdata.length>i;i++) {%>
+                        <tr>
+
+
+                          <td id="fileUpload"  class="text-center">
+
+                            <a id="pdf_link<%=regdata[i].fileUpload %>" class="text-primary">
+                             <span data-linkid="<%=regdata[i].userId %>" class="pdf_link">
+                              <span id="fileNameSpan"><%=regdata[i].fileUpload %></span>                  
+                             </span> 
+                            </a>
+
+                            <br>
+                            
+                            <form method="post" class="text-start"  action="/upload/<%=regdata[i].userId%>"
+                             enctype="multipart/form-data">
+                            <input class="bg-primary" type="file" name="fileUpload"
+                            id="fileInput_<%=regdata[i].userId %>" required>
+                            <span id="serious">
+                              <button class="upload_button bg-primary" data-buttonId="<%=regdata[i].userId%>" 
+                                class="ms-5" id="upload_button_<%=regdata[i].userId%>" >
+                                Upload</button></span>
+                              </form>
+                              
+                              
+                            </td>
+                            <td id="username1">
+                                <%=regdata[i].username %>
+                              </td>
+                            <td id="email1">
+                                <%=regdata[i].email %>
+                            </td>
+                            <td id="age1">
+                              <%=regdata[i].age %>
+                            </td>
+                            <td id="password1">
+                              <div class=scrollable>
+                                <%=regdata[i].password %>
+                              </div>
+                            </td>
+                            
+                            <td>
+                                       
+ 
+                 <a class="btn btn-primary" href="/deleteUser/<%=regdata[i].userId%>">Delete</a>
+
+                           <a class="btn btn-warning edit-button" data-bs-toggle="modal"
+                            data-userId="<%=regdata[i].userId%>" 
+                            data-username="<%=regdata[i].username%>"
+                            data-email="<%=regdata[i].email%>"
+                            data-age="<%=regdata[i].age%>"
+                            data-password="<%=regdata[i].password%>"
+                            data-bs-target="#staticBackdrop">Edit</a>
+
+                      
+                          </td>
+                        </tr>
+                        
+                        <% }%>
+
+</tbody>
+
+</table>
+
+<% } else {%>
+  no record found
+  <% } %>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content  bg-warning rounded-pill">
+      <div class="modal-header rounded-pill bg-danger border-5 border border-white">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">edit registration</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body bg-warning text-primary rounded-pill">
+
+          
+          <form method="post"  class="text-center modal_form" id="modal_form">
+            
+            <input class="rounded-pill border-5 border-white my-3 mx-auto col-md-10 mt-3" id="Formusername" name="username" placeholder="enter your username" type="text">
+            <br>
+            <input class="rounded-pill border-5 border-white my-3 mx-auto col-md-10" id="Formemail"  name="email" placeholder="describe your email" type="email">
+            <br>
+            <input class=" rounded-pill border-5 border-white my-3 mx-auto col-md-10" id="Formage" name="age"  placeholder="provide your age" type="number">
+            <br>
+            <input class="rounded-pill border-5 border-white my-3 mx-auto col-md-10" id="Formpassword" name="password" placeholder="create your password" type="password">
+            <br>
+            
+          </div>
+          
+          <div class="modal-footer d-flex justify-content-center rounded-pill bg-danger border-5 border border-white">
+            <button type="button" class="btn  btn-dark" data-bs-dismiss="modal">CANCEL</button>
+            <a id="edit-api"><button type="submit" class=" submit-btn btn btn-success" >SAVE</button></a>  
+          </div>
+          
+        </form> 
+        
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
+  <script src="/public/js/bootstrap.bundle.min.js"></script>
+  <script src="/public/js/register_table.js"></script>
+  
+</body>
+</html>
